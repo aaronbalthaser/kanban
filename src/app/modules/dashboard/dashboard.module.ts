@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 /* Module Dependencies */
+import { BoardModule } from '../board';
 
 /* Containers */
 import { DashboardComponent } from './containers/dashboard/dashboard.component';
@@ -23,7 +24,9 @@ export const ROUTES: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(ROUTES)
+    RouterModule.forChild(ROUTES),
+
+    BoardModule
   ],
   declarations: [
     DashboardComponent,

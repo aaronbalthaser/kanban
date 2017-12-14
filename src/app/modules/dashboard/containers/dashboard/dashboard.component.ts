@@ -10,7 +10,7 @@ import { TransmitService } from '../../../../shared/services/transmit';
   template: `
     <div class="wrapper">
       <header (logout)="onLogout()"></header>
-      <div class="content"></div>
+      <board></board>
       <footer></footer>
     </div>
   `
