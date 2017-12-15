@@ -4,9 +4,11 @@ import { CommonModule } from '@angular/common';
 /* Module Dependencies */
 
 /* Containers */
+import { BoardComponent } from './container/board/board.component';
 
 /* Components */
-import { BoardComponent } from './container/board/board.component';
+import { ColumnComponent } from './components/column/column.component';
+import { CardComponent } from './components/card/card.component';
 
 /* Services */
 
@@ -15,7 +17,9 @@ import { BoardComponent } from './container/board/board.component';
 @NgModule({
   imports: [],
   declarations: [
-    BoardComponent
+    BoardComponent,
+    ColumnComponent,
+    CardComponent
   ],
   providers: [],
   exports: [
