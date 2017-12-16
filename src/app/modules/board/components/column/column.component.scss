@@ -42,4 +42,7 @@
   background-color: #fff;
   flex: 1 1 100%;
   padding: 4px 6px;
+
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
