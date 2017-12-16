@@ -39,9 +39,8 @@ export class CardsService {
       .post(this.api, model)
       .map(res => res.json())
       .subscribe((card: Card) => {
-        const cards = this.store.value.cards;
-        const cardList = [...cards, card];
-        this.store.set('cards', cardList);
+        const cards = [...this.store.value.cards, card];
+        this.store.set('cards', cards);
       });
   }
 }
