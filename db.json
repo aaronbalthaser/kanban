@@ -39,6 +39,11 @@
       "id": 8,
       "col": 2,
       "description": "Feed the Cat."
+    },
+    {
+      "id": 9,
+      "col": 1,
+      "description": "Feed the Dog."
     }
   ],
   "columns": [

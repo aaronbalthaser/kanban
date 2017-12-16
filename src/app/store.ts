@@ -5,10 +5,12 @@ import 'rxjs/add/operator/pluck';
 
 export interface State {
   cards: any[];
+  columns: any[];
 }
 
 const state: State = {
-  cards: undefined
+  cards: undefined,
+  columns: undefined
 }
 
 export class Store {

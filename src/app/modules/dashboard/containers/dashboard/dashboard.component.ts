@@ -1,4 +1,4 @@
-import { Component, ViewChild, ViewContainerRef, ComponentFactoryResolver, AfterContentInit, OnInit } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef, ComponentFactoryResolver, AfterContentInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../../auth/modules/shared/services/auth.service';
@@ -16,7 +16,7 @@ import { TransmitService } from '../../../../shared/services/transmit';
   `
 })
 
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
   constructor(
     private authService: AuthService,
@@ -37,9 +37,5 @@ export class DashboardComponent implements OnInit {
       await this.authService.logout();
       this.router.navigate(['/auth/login']);
     } catch (error) {}
-  }
-
-  ngOnInit() {
-    console.log('dashboard');
   }
 }

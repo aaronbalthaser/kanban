@@ -5,6 +5,7 @@ import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 
 import { Column } from '../../services/columns.service';
+import { CardsService } from '../../services/cards.service';
 
 import { Store } from '../../../../store';
 
@@ -34,12 +35,18 @@ export class ColumnComponent implements OnInit {
   public cards$: Observable<any[]>;
 
   constructor(
-    private store: Store
+    private store: Store,
+    private cardsService: CardsService
   ) {}
 
   public addTask() {
     const input = prompt('Add Task');
-    console.log(input);
+
+    this.cardsService.create({
+      id: null,
+      col: 1,
+      description: input
+    });
   }
 
   ngOnInit() {

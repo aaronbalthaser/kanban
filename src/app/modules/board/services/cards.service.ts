@@ -26,4 +26,22 @@ export class CardsService {
     private http: Http,
     private store: Store
   ) {}
+
+  private getHighestId() {
+    return this.store.value.cards.length;
+  }
+
+  public create(model) {
+    let id = this.getHighestId() + 1;
+    model['id'] = id;
+
+    this.http
+      .post(this.api, model)
+      .map(res => res.json())
+      .subscribe((card: Card) => {
+        const cards = this.store.value.cards;
+        const cardList = [...cards, card];
+        this.store.set('cards', cardList);
+      });
+  }
 }
