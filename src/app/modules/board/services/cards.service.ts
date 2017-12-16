@@ -14,7 +14,7 @@ export interface Card {
 
 @Injectable()
 export class CardsService {
-  private api: string = 'http://localhost:3000/cards';
+  private api: string = 'http://localhost:3000/cards/';
 
   getCards$: Observable<Card[]> = this.http
     .get(this.api)
@@ -42,5 +42,19 @@ export class CardsService {
         const cards = [...this.store.value.cards, card];
         this.store.set('cards', cards);
       });
+  }
+
+  public move(card) {
+    this.http
+      .put(this.api + `${card.id}`, card)
+      .map(res => res.json())
+      .subscribe((card: Card) => {
+        let cardsList = this.store.value.cards.filter(item => {
+          return item['id'] !== card['id'];
+        });
+        const cards = [...cardsList, card];
+        this.store.set('cards', cards);
+      }
+    );
   }
 }

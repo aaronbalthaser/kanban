@@ -13,7 +13,7 @@ import { Store } from '../../../../store';
   selector: 'column',
   styleUrls: ['column.component.scss'],
   template: `
-    <div class="column">
+    <div class="column"(dragover)="allowDrop($event)" (drop)="drop($event)">
       <header class="header" [ngStyle]="{'background-color': colData.color}">
         {{ colData.name }}
         <img
@@ -39,9 +39,24 @@ export class ColumnComponent implements OnInit {
     private cardsService: CardsService
   ) {}
 
+  public allowDrop(event) {
+    event.preventDefault();
+  }
+
+  public drop(event) {
+    event.preventDefault();
+
+    let id = event.dataTransfer.getData('data');
+    let cards = this.store.value.cards.filter(card => {
+      return card['id'] === +id;
+    });
+
+    let card = { ...cards[0], col: this.colData['id'] };
+    this.cardsService.move(card);
+  }
+
   public addTask() {
     const input = prompt('Add Task');
-
     this.cardsService.create({
       id: null,
       col: 1,

@@ -6,7 +6,11 @@ import { Card } from '../../services/cards.service';
   selector: 'card',
   styleUrls: ['card.component.scss'],
   template: `
-    <div class="card">
+    <div
+        class="card"
+        id="{{ card.id }}"
+        draggable="true"
+        (dragstart)="drag($event)">
       {{ card.description }}
     </div>
   `
@@ -14,4 +18,8 @@ import { Card } from '../../services/cards.service';
 
 export class CardComponent {
   @Input() card: Card;
+
+  public drag(event) {
+    event.dataTransfer.setData('data', event.target.id);
+  }
 }
