@@ -15,7 +15,11 @@ import { Store } from '../../../../store';
     <div class="column">
       <header class="header" [ngStyle]="{'background-color': colData.color}">
         {{ colData.name }}
-        <img class="btn-add" src="assets/img/add.png">
+        <img
+            *ngIf="colData.name === 'Pending'"
+            class="btn-add"
+            src="assets/img/add.png"
+            (click)="addTask()">
       </header>
       <section class="content">
         <card *ngFor="let card of cards$ | async" [card]="card"></card>
@@ -32,6 +36,11 @@ export class ColumnComponent implements OnInit {
   constructor(
     private store: Store
   ) {}
+
+  public addTask() {
+    const input = prompt('Add Task');
+    console.log(input);
+  }
 
   ngOnInit() {
     this.cards$ = this.store.select('cards')
