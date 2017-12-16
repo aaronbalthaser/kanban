@@ -2,7 +2,7 @@
   "cards": [
     {
       "id": 1,
-      "col": 1,
+      "col": 3,
       "description": "Feed the Cat."
     },
     {
@@ -22,7 +22,7 @@
     },
     {
       "id": 5,
-      "col": 4,
+      "col": 1,
       "description": "Feed the Cat."
     },
     {
@@ -37,12 +37,12 @@
     },
     {
       "id": 8,
-      "col": 2,
+      "col": 4,
       "description": "Feed the Cat."
     },
     {
       "id": 9,
-      "col": 3,
+      "col": 1,
       "description": "New"
     }
   ],
@@ -50,22 +50,26 @@
     {
       "id": 1,
       "name": "Pending",
-      "color": "#aa3939"
+      "color": "#aa3939",
+      "colorRgba": "rgba(170, 57, 57, .3)"
     },
     {
       "id": 2,
       "name": "In Progress",
-      "color": "#aa6c39"
+      "color": "#aa6c39",
+      "colorRgba": "rgba(170, 108, 57, .3)"
     },
     {
       "id": 3,
       "name": "Testing",
-      "color": "#226666"
+      "color": "#226666",
+      "colorRgba": "rgba(34, 102, 102, .3)"
     },
     {
       "id": 4,
       "name": "Completed",
-      "color": "#2d882d"
+      "color": "#2d882d",
+      "colorRgba": "rgba(34, 102, 102, .3)"
     }
   ]
 }

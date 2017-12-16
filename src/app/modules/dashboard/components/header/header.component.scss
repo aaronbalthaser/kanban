@@ -1,14 +1,25 @@
 :host {
   display: block;
-  height: 60px;
+  height: 74px;
   width: 100%;
 }
 
 .header {
   display: flex;
-  height: 60px;
+  height: 74px;
   width: 100%;
   padding: 0 20px;
   justify-content: space-between;
   align-items: center;
+
+  .logo {
+    width: 160px;
+  }
+
+  span {
+    display: block;
+    font-size: 12px;
+    margin-left: 8px;
+    margin-top: -8px;
+  }
 }

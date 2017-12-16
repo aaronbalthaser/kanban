@@ -23,7 +23,7 @@ import { Store } from '../../../../store';
             (click)="addTask()">
       </header>
       <section class="content">
-        <card *ngFor="let card of cards$ | async" [card]="card"></card>
+        <card *ngFor="let card of cards$ | async" [card]="card" [data]="colData"></card>
       </section>
     </div>
   `

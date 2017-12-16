@@ -10,7 +10,8 @@ import { Card } from '../../services/cards.service';
         class="card"
         id="{{ card.id }}"
         draggable="true"
-        (dragstart)="drag($event)">
+        (dragstart)="drag($event)"
+        [ngStyle]="{'background-color': data.colorRgba}">
       {{ card.description }}
     </div>
   `
@@ -18,6 +19,7 @@ import { Card } from '../../services/cards.service';
 
 export class CardComponent {
   @Input() card: Card;
+  @Input() data: any;
 
   public drag(event) {
     event.dataTransfer.setData('data', event.target.id);
