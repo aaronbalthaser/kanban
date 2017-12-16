@@ -1,0 +1,54 @@
+{
+  "cards": [
+    {
+      "id": 1,
+      "description": "Feed the Cat."
+    },
+    {
+      "id": 2,
+      "description": "Feed the Cat."
+    },
+    {
+      "id": 3,
+      "description": "Feed the Cat."
+    },
+    {
+      "id": 4,
+      "description": "Feed the Cat."
+    },
+    {
+      "id": 5,
+      "description": "Feed the Cat."
+    },
+    {
+      "id": 6,
+      "description": "Feed the Cat."
+    },
+    {
+      "id": 7,
+      "description": "Feed the Cat."
+    },
+    {
+      "id": 8,
+      "description": "Feed the Cat."
+    }
+  ],
+  "columns": [
+    {
+      "name": "Pending",
+      "color": "#aa3939"
+    },
+    {
+      "name": "In Progress",
+      "color": "#aa6c39"
+    },
+    {
+      "name": "Testing",
+      "color": "#226666"
+    },
+    {
+      "name": "Completed",
+      "color": "#2d882d"
+    }
+  ]
+}
