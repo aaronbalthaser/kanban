@@ -1,6 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
+
 import { Column } from '../../services/columns.service';
+
+import { Store } from '../../../../store';
 
 @Component({
   selector: 'column',
@@ -11,7 +17,9 @@ import { Column } from '../../services/columns.service';
         {{ colData.name }}
         <img class="btn-add" src="assets/img/add.png">
       </header>
-      <section class="content"></section>
+      <section class="content">
+        <card *ngFor="let card of cards$ | async" [card]="card"></card>
+      </section>
     </div>
   `
 })
@@ -19,7 +27,20 @@ import { Column } from '../../services/columns.service';
 export class ColumnComponent implements OnInit {
   @Input() colData: Column[];
 
+  public cards$: Observable<any[]>;
+
+  constructor(
+    private store: Store
+  ) {}
+
   ngOnInit() {
-    console.log(this.colData);
+    this.cards$ = this.store.select('cards')
+      .filter(Boolean)
+      .map(cards => {
+        return cards.filter(card => {
+          return card['col'] === this.colData['id'];
+        });
+      }
+    );
   }
 }
