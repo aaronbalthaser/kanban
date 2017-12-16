@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpModule } from '@angular/http';
 
 /* Module Dependencies */
 
@@ -11,17 +12,25 @@ import { ColumnComponent } from './components/column/column.component';
 import { CardComponent } from './components/card/card.component';
 
 /* Services */
+import { ColumnsService } from './services/columns.service';
+import { CardsService } from './services/cards.service';
 
 /* Routes */
 
 @NgModule({
-  imports: [],
+  imports: [
+    CommonModule,
+    HttpModule
+  ],
   declarations: [
     BoardComponent,
     ColumnComponent,
     CardComponent
   ],
-  providers: [],
+  providers: [
+    ColumnsService,
+    CardsService
+  ],
   exports: [
     BoardComponent
   ]

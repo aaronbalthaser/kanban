@@ -1,0 +1,43 @@
+:host {
+  display: block;
+  margin-right: 25px;
+  height: 100%;
+  width: 25%;
+}
+
+:host:first-child {
+  margin-left: 25px;
+}
+
+.column-container {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  padding: 8px;
+  width: 100%;
+
+  .btn-add {
+    position: absolute;
+    fill: #fff;
+    height: 24px;
+    width: 24px;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.content {
+  flex: 1 1 100%;
+}

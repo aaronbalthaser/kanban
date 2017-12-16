@@ -1,25 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
-import data from '../../services/data';
+import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
+
+import { ColumnsService } from '../../services/columns.service';
+
 import { Store } from '../../../../store';
 
 @Component({
   selector: 'board',
   styleUrls: ['board.component.scss'],
-  template: `<column></column>`
+  template: `
+    <column
+        *ngFor="let col of columns$ | async"
+        [colData]="col">
+    </column>
+  `
 })
 
-export class BoardComponent implements OnInit {
-
-  cards$ = this.store.select<any[]>('cards');
+export class BoardComponent implements OnInit, OnDestroy {
+  private columns$: Observable<any[]>;
+  private subscription: Subscription;
 
   constructor(
-    private store: Store
-  ) {
-    this.store.set('cards', data());
-  }
+    private store: Store,
+    private columnsService: ColumnsService
+  ) {}
 
   ngOnInit() {
-    console.log(this.store.value);
+    this.subscription = this.columnsService.getColumns$.subscribe();
+    this.columns$  = this.store.select('columns');
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }
